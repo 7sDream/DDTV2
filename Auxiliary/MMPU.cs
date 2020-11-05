@@ -352,7 +352,8 @@ namespace Auxiliary
 
         public static string 写ini配置文件(string 节点, string 项目, string 值, string 路径)
         {
-            bilibili.BiliUser.Write(节点, 项目, 值, 路径);
+	        Console.WriteLine(节点 + "\n" + 项目 + "\n" + 值 + "\n=====");
+            //bilibili.BiliUser.Write(节点, 项目, 值, 路径);
             return null;
         }
         public static IPAddress 根据URL获取IP地址(string URL)

@@ -44,23 +44,23 @@ namespace DDTVLiveRecWebServer
                     }
                     else
                     {
-                        await context.Response.WriteAsync("æ²¡æœ‰è·å–åˆ°æ—¥å¿—æ–‡ä»¶ï¼Œè¯·ç¡®è®¤DDTVLiveæ­£åœ¨è¿è¡Œ");
+                        await context.Response.WriteAsync("Ã»ÓĞ»ñÈ¡µ½ÈÕÖ¾ÎÄ¼ş£¬ÇëÈ·ÈÏDDTVLiveÕıÔÚÔËĞĞ");
                     }
                 });
                 endpoints.MapGet("/file", async context =>
                 {
-                    if(!Directory.Exists(Auxiliary.MMPU.ç¼“å­˜è·¯å¾„))
+                    if(!Directory.Exists(Auxiliary.MMPU.»º´æÂ·¾¶))
                     {
-                        Directory.CreateDirectory(Auxiliary.MMPU.ç¼“å­˜è·¯å¾„);
+                        Directory.CreateDirectory(Auxiliary.MMPU.»º´æÂ·¾¶);
                     }
-                    string A = "å½“å‰å½•åˆ¶æ–‡ä»¶å¤¹æ–‡ä»¶åˆ—è¡¨:\r\n";
+                    string A = "µ±Ç°Â¼ÖÆÎÄ¼ş¼ĞÎÄ¼şÁĞ±í:\r\n";
                     context.Response.ContentType = "text/plain; charset=utf-8";
-                    foreach (DirectoryInfo NextFolder1 in new DirectoryInfo(Auxiliary.MMPU.ç¼“å­˜è·¯å¾„).GetDirectories())
+                    foreach (DirectoryInfo NextFolder1 in new DirectoryInfo(Auxiliary.MMPU.»º´æÂ·¾¶).GetDirectories())
                     {
                         A = A + "\r\n" + NextFolder1.Name;
-                        foreach (FileInfo NextFolder2 in new DirectoryInfo(Auxiliary.MMPU.ç¼“å­˜è·¯å¾„ + NextFolder1.Name).GetFiles())
+                        foreach (FileInfo NextFolder2 in new DirectoryInfo(Auxiliary.MMPU.»º´æÂ·¾¶ + NextFolder1.Name).GetFiles())
                         {
-                            A = A + "\r\nã€€ã€€" + Math.Ceiling(NextFolder2.Length / 1024.0 / 1024.0) + " MB |" + NextFolder2.Name;
+                            A = A + "\r\n¡¡¡¡" + Math.Ceiling(NextFolder2.Length / 1024.0 / 1024.0) + " MB |" + NextFolder2.Name;
                         }
                         A = A + "\r\n";
                     }
@@ -80,29 +80,29 @@ namespace DDTVLiveRecWebServer
                     }
                    else
                     {
-                        await context.Response.WriteAsync("<a>äºŒç»´ç åŠ è½½å¤±è´¥ï¼Œè¯·ç¨ç­‰3ç§’ååˆ·æ–°ç½‘é¡µ,å¦‚å¤šæ¬¡å¤±è´¥ï¼Œè¯·æŸ¥çœ‹æ§åˆ¶å°æ˜¯å¦è¾“å‡ºé”™è¯¯ä¿¡æ¯<a/>", System.Text.Encoding.UTF8);
+                        await context.Response.WriteAsync("<a>¶şÎ¬Âë¼ÓÔØÊ§°Ü£¬ÇëÉÔµÈ3ÃëºóË¢ĞÂÍøÒ³,Èç¶à´ÎÊ§°Ü£¬Çë²é¿´¿ØÖÆÌ¨ÊÇ·ñÊä³ö´íÎóĞÅÏ¢<a/>", System.Text.Encoding.UTF8);
                     }
                 });
                 endpoints.MapGet("/config", async context =>
                 {
                     context.Response.ContentType = "text/html; charset=utf-8";
-                    await context.Response.WriteAsync("è®¿é—®ä»¥ä¸‹é“¾æ¥ä»¥ä¿®æ”¹é…ç½®:<br/>(ä¿®æ”¹åè¯·é‡å¯DDTVLiveRecç”Ÿæ•ˆ)<br/>" +
-                        "<br/>æ‰“å¼€å¼¹å¹•/ç¤¼ç‰©/èˆ°é˜Ÿå½•åˆ¶å‚¨å­˜IP:11419/config-DanmuRecOn" +
-                        "<br/>å…³é—­å¼¹å¹•/ç¤¼ç‰©/èˆ°é˜Ÿå½•åˆ¶å‚¨å­˜IP:11419/config-DanmuRecOff");
+                    await context.Response.WriteAsync("·ÃÎÊÒÔÏÂÁ´½ÓÒÔĞŞ¸ÄÅäÖÃ:<br/>(ĞŞ¸ÄºóÇëÖØÆôDDTVLiveRecÉúĞ§)<br/>" +
+                        "<br/>´ò¿ªµ¯Ä»/ÀñÎï/½¢¶ÓÂ¼ÖÆ´¢´æIP:11419/config-DanmuRecOn" +
+                        "<br/>¹Ø±Õµ¯Ä»/ÀñÎï/½¢¶ÓÂ¼ÖÆ´¢´æIP:11419/config-DanmuRecOff");
                 });
                 endpoints.MapGet("/config-DanmuRecOn", async context =>
                 {
-                    Auxiliary.MMPU.å½•åˆ¶å¼¹å¹• = true;
+                    Auxiliary.MMPU.Â¼ÖÆµ¯Ä» = true;
                     Auxiliary.MMPU.setFiles("RecordDanmu", "1");
                     context.Response.ContentType = "text/html; charset=utf-8";
-                    await context.Response.WriteAsync("æ‰“å¼€å¼¹å¹•/ç¤¼ç‰©/èˆ°é˜Ÿå½•åˆ¶å‚¨å­˜æˆåŠŸ");
+                    await context.Response.WriteAsync("´ò¿ªµ¯Ä»/ÀñÎï/½¢¶ÓÂ¼ÖÆ´¢´æ³É¹¦");
                 });
                 endpoints.MapGet("/config-DanmuRecOff", async context =>
                 {
-                    Auxiliary.MMPU.å½•åˆ¶å¼¹å¹• = false;
+                    Auxiliary.MMPU.Â¼ÖÆµ¯Ä» = false;
                     Auxiliary.MMPU.setFiles("RecordDanmu", "0");
                     context.Response.ContentType = "text/html; charset=utf-8";
-                    await context.Response.WriteAsync("å…³é—­å¼¹å¹•/ç¤¼ç‰©/èˆ°é˜Ÿå½•åˆ¶å‚¨å­˜æˆåŠŸ");
+                    await context.Response.WriteAsync("¹Ø±Õµ¯Ä»/ÀñÎï/½¢¶ÓÂ¼ÖÆ´¢´æ³É¹¦");
                 });
             });
         }

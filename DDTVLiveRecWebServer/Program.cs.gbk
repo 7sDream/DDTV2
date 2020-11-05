@@ -13,7 +13,7 @@ namespace DDTVLiveRecWebServer
     {
         public static void Main(string[] args)
         {
-            Auxiliary.InfoLog.InfoPrintf("DDTVLiveRecWebServerå¯åŠ¨æˆåŠŸï¼Œå¼€å§‹ç›‘å¬11419ç«¯å£", Auxiliary.InfoLog.InfoClass.ä¸‹è½½å¿…è¦æç¤º);
+            Auxiliary.InfoLog.InfoPrintf("DDTVLiveRecWebServerÆô¶¯³É¹¦£¬¿ªÊ¼¼àÌı11419¶Ë¿Ú", Auxiliary.InfoLog.InfoClass.ÏÂÔØ±ØÒªÌáÊ¾);
             CreateHostBuilder(args).Build().Run();     
         }
 
@@ -21,7 +21,7 @@ namespace DDTVLiveRecWebServer
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().UseUrls("http://"+Auxiliary.MMPU.webServeré»˜è®¤ç›‘å¬IP+":11419");
+                    webBuilder.UseStartup<Startup>().UseUrls("http://"+Auxiliary.MMPU.webServerÄ¬ÈÏ¼àÌıIP+":11419");
                 });
     }
 }
